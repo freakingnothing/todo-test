@@ -3,12 +3,12 @@ class V1::TasksController < ApplicationController
 
   def index
     @tasks = @taskable.tasks.all
-    render json: @tasks, status: :ok
+    render json: @tasks, include: ["tasks.**"]
   end
 
   def show
     @task = @taskable.tasks.find(params[:id])
-    render json: @task, status: :ok
+    render json: @task, include: ["tasks.**"]
   end
 
   def create

@@ -4,12 +4,12 @@ class V1::ProjectsController < ApplicationController
   def index
     @projects = Project.all
     # respond_with :v1, @projects
-    render json: @projects
+    render json: @projects, include: ["tasks.**"]
   end
 
   def show
     @project = Project.find(params[:id])
-    render json: @project
+    render json: @project, include: ["tasks.**"]
   end
 
   def create
