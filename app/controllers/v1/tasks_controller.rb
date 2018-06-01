@@ -41,7 +41,7 @@ class V1::TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:body)
+    params.require(:task).permit(:body, tag_list: [])
   end
 
   def find_taskable

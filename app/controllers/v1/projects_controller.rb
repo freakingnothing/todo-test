@@ -16,6 +16,7 @@ class V1::ProjectsController < ApplicationController
     @project = Project.new(project_params)
     
     if @project.save
+      @project.tag_list=(params[:tag_list]) if params[:tag_list]
       render json: @project, status: :created
     else
       head(:unprocessable_entity)
@@ -28,6 +29,7 @@ class V1::ProjectsController < ApplicationController
     @project = Project.find(params[:id])
 
     if @project.update(project_params)
+      @project.tag_list += @project.tag_list=(params[:tag_list]) if params[:tag_list]
       render json: @project
     else
       head(:unprocessable_entity)
@@ -47,6 +49,6 @@ class V1::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title)
+    params.require(:project).permit(:title, tag_list: [])
   end
 end
