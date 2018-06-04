@@ -47,4 +47,6 @@ DeviseTokenAuth.setup do |config|
   # config.enable_standard_devise_support = false
 
   # config.navigational_formats = [:json]
+
+  config.default_confirm_success_url = true
 end
