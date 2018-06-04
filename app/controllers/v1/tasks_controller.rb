@@ -1,4 +1,6 @@
 class V1::TasksController < ApplicationController
+  before_action :authenticate_user!
+  
   def create
     @project = Project.find(params[:project_id])
     @task = @project.tasks.create(task_params)
