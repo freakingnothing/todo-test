@@ -28,7 +28,7 @@ DeviseTokenAuth.setup do |config|
   # Uncomment to enforce current_password param to be checked before all
   # attribute updates. Set it to :password if you want it to be checked only if
   # password is updated.
-  # config.check_current_password_before_update = :attributes
+  config.check_current_password_before_update = :password
 
   # By default we will use callbacks for single omniauth.
   # It depends on fields like email, provider and uid.
@@ -48,5 +48,5 @@ DeviseTokenAuth.setup do |config|
 
   # config.navigational_formats = [:json]
 
-  config.default_confirm_success_url = true
+  # config.default_confirm_success_url = true
 end

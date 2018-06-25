@@ -1,11 +1,11 @@
-class User < ActiveRecord::Base
-  include DeviseTokenAuth::Concerns::User
-  
+class User < ActiveRecord::Base  
   devise :database_authenticatable,
+         :confirmable,  
          :registerable,
          :recoverable,
          :rememberable,
          :trackable, 
-         :validatable,
-         :omniauthable
+         :validatable
+
+  include DeviseTokenAuth::Concerns::User
 end
