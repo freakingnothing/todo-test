@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
          :validatable
 
   include DeviseTokenAuth::Concerns::User
+
+  has_many :projects
+  has_many :tasks, through: :projects
+  has_many :tags
 end
